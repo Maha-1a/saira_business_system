@@ -77,44 +77,37 @@ class DashboardCard extends StatelessWidget {
 
   final IconData icon;
   final String title;
-
+  final VoidCallback? onTap;
+  
   const DashboardCard({
-    super.key,
-    required this.icon,
-    required this.title,
-  });
+  super.key,
+  required this.icon,
+  required this.title,
+  this.onTap,
+});
+
 
 
   @override
   Widget build(BuildContext context) {
 
-    return Card(
-
-      elevation: 5,
-
-      child: Column(
-
-        mainAxisAlignment: MainAxisAlignment.center,
-
-        children: [
-
-          Icon(
-            icon,
-            size: 40,
+   return InkWell(
+  onTap: onTap,
+  child: Card(
+    elevation: 5,
+    child: Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Icon(icon, size: 40),
+        const SizedBox(height: 10),
+        Text(
+          title,
+          style: const TextStyle(
+            fontSize: 18,
+            fontWeight: FontWeight.bold,
           ),
-
-          const SizedBox(height:10),
-
-          Text(
-            title,
-            style: const TextStyle(
-              fontSize:18,
-              fontWeight: FontWeight.bold,
-            ),
-          )
-
-        ],
-      ),
-    );
-  }
-}
+        ),
+      ],
+    ),
+  ),
+);
