@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import '../reports_screen.dart';
 
 class DashboardScreen extends StatelessWidget {
   const DashboardScreen({super.key});
@@ -24,7 +25,7 @@ class DashboardScreen extends StatelessWidget {
         crossAxisSpacing: 15,
         mainAxisSpacing: 15,
 
-        children: const [
+        children: [
 
           DashboardCard(
             icon: Icons.shopping_cart,
@@ -56,22 +57,19 @@ class DashboardScreen extends StatelessWidget {
             title: "Accounts",
           ),
 
-          DashboardCard(
-            icon: Icons.bar_chart,
-            title: "Reports",
-          ),
-
-          DashboardCard(
-            icon: Icons.settings,
-            title: "Settings",
-          ),
-
-        ],
+         
+     DashboardCard(
+  icon: Icons.bar_chart,
+  title: "Reports",
+  onTap: () {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const ReportsScreen(),
       ),
     );
-  }
-}
-
+  },
+),
 
 class DashboardCard extends StatelessWidget {
 
